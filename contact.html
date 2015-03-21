@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>DIPOLC: Contact Us </title>
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="cufon-yui.js" type="text/javascript"></script>
+		<script src="BabelSans_500.font.js" type="text/javascript"></script>
+		<script src="jquery.easing.1.3_menu.js" type="text/javascript"></script>
+		<script>
+$(document).ready(function() {
+
+	var div = $('#nav_menu_lab');
+	var start = $(div).offset().top;
+
+	$.event.add(window, "scroll", function() {
+		var p = $(window).scrollTop();
+		$(div).css('position',((p)>start) ? 'fixed' : 'static');
+		$(div).css('top',((p)>start) ? '0px' : '');
+	});
+
+});
+
+</script>
+		<script type="text/javascript">
+			$(function() {
+				Cufon.replace('a, span').CSS.ready(function() {
+					var $menu 		= $("#slidingMenu");
+					
+					/**
+					* the first item in the menu, 
+					* which is selected by default
+					*/
+					var $selected	= $menu.find('li:first');
+					
+					/**
+					* this is the absolute element,
+					* that is going to move across the menu items
+					* it has the width of the selected item
+					* and the top is the distance from the item to the top
+					*/
+					var $moving		= $('<li />',{
+						className	: 'move',
+						top			: $selected[0].offsetTop + 'px',
+						width		: $selected[0].offsetWidth + 'px'
+					});
+					
+					/**
+					* each sliding div (descriptions) will have the same top
+					* as the corresponding item in the menu
+					*/
+					$('#slidingMenuDesc > div').each(function(i){
+						var $this = $(this);
+						$this.css('top',$menu.find('li:nth-child('+parseInt(i+2)+')')[0].offsetTop + 'px');
+					});
+					
+					/**
+					* append the absolute div to the menu;
+					* when we mouse out from the menu 
+					* the absolute div moves to the top (like innitially);
+					* when hovering the items of the menu, we move it to its position 
+					*/
+					$menu.bind('mouseleave',function(){
+							moveTo($selected,400);
+						  })
+						 .append($moving)
+						 .find('li')
+						 .not('.move')
+						 .bind('mouseenter',function(){
+							var $this = $(this);
+							var offsetLeft = $this.offset().left - 20;
+							//slide in the description
+							$('#slidingMenuDesc > div:nth-child('+ parseInt($this.index()) +')').stop(true).animate({'width':offsetLeft+'px'},400, 'easeOutExpo');
+							//move the absolute div to this item
+							moveTo($this,400);
+						  })
+						  .bind('mouseleave',function(){
+							var $this = $(this);
+							var offsetLeft = $this.offset().left - 20;
+							//slide out the description
+							$('#slidingMenuDesc > div:nth-child('+ parseInt($this.index()) +')').stop(true).animate({'width':'0px'},400, 'easeOutExpo');
+						  });;
+					
+					/**
+					* moves the absolute div, 
+					* with a certain speed, 
+					* to the position of $elem
+					*/
+					function moveTo($elem,speed){
+						$moving.stop(true).animate({
+							top		: $elem[0].offsetTop + 'px',
+							width	: $elem[0].offsetWidth + 'px'
+						}, speed, 'easeOutExpo');
+					}
+				}) ;
+			});
+		</script>
+		<style>
+          span.reference_menu{
+              position:fixed;
+              left:10px;
+              bottom:10px;
+              font-size:14px;
+          }
+          span.reference_menu a{
+              color:#aaa;
+              text-decoration:none;
+          }
+          #nav_menu_lab {
+			float: right;
+			z-index: 40;
+			position: relative;
+			height: 40px;
+			background: #2183c4;
+			display: block;
+			width: 100%;
+	
+}
+		#navslide_lab {
+			float: right;
+			margin-right: 40px;
+			margin-top: 20px;
+			z-index: 10;
+
+}
+		#navslide_lab li {
+			float: left;
+			margin-left: 40px;
+			margin-right: 30px;
+			margin-top: -9px;
+			text-decoration: none;
+			list-style: none;
+			font-family: "proxima-nova", "Helvetica", sans-serif;
+			text-transform: uppercase;
+
+}
+		#navslide_lab a {
+			color: white;
+			text-decoration: none;
+			font-weight: bolder;
+		}
+         </style>
+	</head>
+	<body>
+		<p style="font-size: 30px; margin-left: 20px; font-family: arial; color: white; opacity: 0.8;;">Digital Image Processing Online Learning Centre (DIPOLC)  <br>
+		</p>
+		<div id="nav_menu_lab"> 
+			<ul id="navslide_lab">
+				<li><a href="http://localhost/image_processing_lab/index.php" target="_top">Home</a></li>
+				<li><a href="http://localhost/image_processing_lab/contact.html" target="_top">Contact Us</a></li>
+			</ul>
+		</div>
+<p align="center"style="font-size: 20px; margin-left: 20px; font-family: arial; color: white; opacity: 0.4;"> <br><br><br><br>
+	We would be love to hear any queries related to the project.<br>
+	Feel Free to Contact us.<br><br><br>
+</p>
+
+
+<table width="81%" cellpadding="4" cols="1" align="center">
+  <tr>
+    <td height="130" valign="middle" style="vertical-align: middle;"><img src="abhinash.jpg" alt="" width="180" height="150"></td>
+    <td valign="middle" style="vertical-align: middle;"><font color="white"><strong><em>Abhinash Kumar Jha</em></strong></font><br>
+         <style="opacity:0.6">
+         Final Year, UG<br> 
+         The LNM Institute of Information Technology, Jaipur<br>
+         mail id : abhijha.lnm@gmail.com <br>
+         <a href=""><img src="webicon.gif" alt="" width="30" height="30"></a>
+         <a href="http://www.facebook.com/d.changer"><img src="fbicon.gif" alt="" width="30" height="30"></a>
+         <a href="http://in.linkedin.com/pub/abhinash-kumar-jha/42/b73/b5b/en"><img src="linicon.gif" alt="" width="30" height="30"></a>
+     </td>
+  </tr>
+  <tr>
+    <td height="130" valign="middle" style="vertical-align: middle;"><img src="aayush.jpg" alt="" width="180" height="150"></td>
+    <td valign="middle" style="vertical-align: middle;"><font color="white"><strong><em>Aayush Kumar</em></strong></font><br>
+         Pre-Final Year, UG<br> 
+         The LNM Institute of Information Technology, Jaipur<br>
+         mail id : aayush.y12@lnmiit.ac.in <br>
+         <a href="http://aayushkumar.co.in/#about"><img src="webicon.gif" alt="" width="30" height="30"></a>
+         <a href="http://www.facebook.com/winneraayush"><img src="fbicon.gif" alt="" width="30" height="30"></a>
+         <a href="https://www.linkedin.com/profile/view?id=211558401"><img src="linicon.gif" alt="" width="30" height="30"></a>
+          </td>
+  </tr>
+  <tr>
+    <td height="130" valign="middle" style="vertical-align: middle;"><img src="ayush.jpg" alt="" width="180" height="150"></td>
+    <td valign="middle" style="vertical-align: middle;"><font color="white"><strong><em>Ayush Kumar</em></strong></font><br>
+         Graduate Student<br> 
+         State University of New-York, Korea <br>
+         mail id : ayush8589@gmail.com <br>
+          <a href="http://www3.cs.stonybrook.edu/~aykumar/#page-top"><img src="webicon.gif" alt="" width="30" height="30"></a>
+         <a href="http://www.facebook.com/ayush.kumar.15"><img src="fbicon.gif" alt="" width="30" height="30"></a>
+         <a href="https://www.linkedin.com/profile/view?id=134436175"><img src="linicon.gif" alt="" width="30" height="30"></a>
+         </td>
+  </tr>
+</table>
+<div id="footer" align="center">		
+<hr color="#FFF">
+last updated March 2015, &copy All rights reserved
+</div>
+	</body>
+</html>
+
+
+
+
+
+
